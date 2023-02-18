@@ -10,6 +10,7 @@ import java.util.Locale;
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
+
     private final StudentRepository studentRepository;
     @Override
     public Student addStudent(Student student) throws Exception {
