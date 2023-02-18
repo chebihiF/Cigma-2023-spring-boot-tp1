@@ -15,7 +15,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student addStudent(Student student) throws Exception {
         // Metier
-        if(student!=null && student.getCode() != null)
+        if(student!=null)
             return studentRepository.save(student);
         else
             throw new RuntimeException("student cannot be added");
@@ -27,8 +27,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student deleteStudent(Student student) throws Exception {
-        studentRepository.delete(student);
+    public Student deleteStudent(Long id) throws Exception {
+        Student student = getStudent(id);
+        studentRepository.deleteById(id);
         return student ;
     }
 

@@ -11,6 +11,24 @@ import java.util.List;
 public class StudentRestController {
     private final StudentService studentService;
 
+    @DeleteMapping("/{id}")
+    public Student deleteStudent(@PathVariable Long id){
+        try {
+            return studentService.deleteStudent(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/{email}")
+    public Student getByEmail(@PathVariable(name = "email") String email){
+        try {
+            return studentService.getStudentsByEmail(email);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @PostMapping
     public Student addStudent(@RequestBody Student student){
         try {
