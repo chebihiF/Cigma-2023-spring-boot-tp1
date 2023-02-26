@@ -1,6 +1,8 @@
 package org.cigma.springboottp1.student;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -43,6 +45,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudents() throws Exception {
         return studentRepository.findAll();
+    }
+
+    @Override
+    public Page<Student> getStudentsAsPage(Pageable pageable) throws Exception {
+        return studentRepository.findAll(pageable);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class Student {
     )
     private Long code ;
     private String name ;
-    @Column(unique = true)
+    //@Column(unique = true)
     private String email ;
     private LocalDate dob ;
 }
