@@ -59,4 +59,8 @@ public class StudentServiceImpl implements StudentService {
             return students.get(0);
         throw new RuntimeException("student not found");
     }
+    @Override
+    public Page<Student> getStudentsByKeyword(String keyword, Pageable pageable) throws Exception {
+        return studentRepository.findStudentsByNameContainingOrEmailContaining(keyword, keyword, pageable);
+    }
 }

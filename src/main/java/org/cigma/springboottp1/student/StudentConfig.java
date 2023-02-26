@@ -342,12 +342,12 @@ public class StudentConfig {
                             LocalDate.of(2011,11,24 )));
 
 
-            List<Student> students = studentRepository.findStudentByQuery("chebihi");
+            //List<Student> students = studentRepository.findStudentByQuery("chebihi");
 
             /*List<Student> students = studentRepository.findStudentByEmail(
                     "f.chebihi@gmail.com"
             );*/
-            System.out.println(students.get(0));
+            //System.out.println(students.get(0));
 
             //studentRepository.findAll().forEach(System.out::println);
 

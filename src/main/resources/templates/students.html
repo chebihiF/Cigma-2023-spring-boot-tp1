@@ -13,6 +13,11 @@
                 List of students
             </div>
             <div class="card-body">
+                <form method="get" th:action="@{students}">
+                    <label>keyword</label>
+                    <input type="text" name="keyword">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
                 <table class="table">
                     <thead>
                     <tr>

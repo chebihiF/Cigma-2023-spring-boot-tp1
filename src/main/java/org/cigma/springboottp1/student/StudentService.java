@@ -13,4 +13,6 @@ public interface StudentService {
     List<Student> getStudents() throws Exception;
     Page<Student> getStudentsAsPage (Pageable pageable) throws Exception;
     Student getStudentsByEmail(String email) throws Exception;
+
+    Page<Student> getStudentsByKeyword(String keyword, Pageable pageable) throws Exception;
 }
