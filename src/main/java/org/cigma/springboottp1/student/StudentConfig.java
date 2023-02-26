@@ -13,7 +13,7 @@ import java.util.List;
 public class StudentConfig {
     private final StudentRepository studentRepository;
 
-    //@Bean
+    @Bean
     CommandLineRunner initStudent(){
         return args -> {
           studentRepository.save
