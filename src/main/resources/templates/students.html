@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>List of students</title>
-
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
 
-    <table>
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Date of berth</th>
-        </tr>
-        <tr th:each="student:${students}">
-            <td th:text="${student.code}"></td>
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.email}"></td>
-            <td th:text="${student.dob}"></td>
-        </tr>
-    </table>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                List of students
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date of berth</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="student:${students}">
+                        <td th:text="${student.code}"></td>
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.email}"></td>
+                        <td th:text="${student.dob}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 </html>
