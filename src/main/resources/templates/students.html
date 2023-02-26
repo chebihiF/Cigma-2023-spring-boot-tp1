@@ -15,7 +15,7 @@
             <div class="card-body">
                 <form method="get" th:action="@{students}">
                     <label>keyword</label>
-                    <input type="text" name="keyword">
+                    <input type="text" name="keyword" th:value="${keyword}">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 <table class="table">
@@ -41,7 +41,7 @@
                         <a
                                 th:class="${currentPage == status.index ? 'btn btn-info ms-1' : 'btn btn-outline-info ms-1'}"
                                 th:text="${status.index}"
-                                th:href="@{students(page=${status.index})}"
+                                th:href="@{students(page=${status.index}, keyword=${keyword})}"
                         ></a>
                     </li>
                 </ul>

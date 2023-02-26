@@ -31,6 +31,7 @@ public class StudentController {
             model.addAttribute("students", students);
             model.addAttribute("pages", new int[students.getTotalPages()]);
             model.addAttribute("currentPage", page);
+            model.addAttribute("keyword", keyword);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error",e.getMessage());
