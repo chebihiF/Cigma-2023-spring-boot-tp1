@@ -22,12 +22,14 @@ public class StudentController {
     public String index(
             Model model,
             @RequestParam(name = "page", defaultValue = "0") int page,
-            @RequestParam(name = "size", defaultValue = "5") int size){
+            @RequestParam(name = "size", defaultValue = "10") int size){
         try {
             Page<Student> students = studentService.getStudentsAsPage(
                     PageRequest.of(page,size)
             );
             model.addAttribute("students", students);
+            model.addAttribute("pages", new int[students.getTotalPages()]);
+            model.addAttribute("currentPage", page);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error",e.getMessage());
