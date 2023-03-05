@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Repository
+@Repository("memoryRepo")
 public class ApplicationUserRepositoryInMemory implements ApplicationUserDao
 {
     private List<ApplicationUserDetails> users ;

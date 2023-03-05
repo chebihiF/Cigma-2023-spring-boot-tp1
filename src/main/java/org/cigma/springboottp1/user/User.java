@@ -18,10 +18,10 @@ public class User {
     @Id @Column(length = 30)
     private String email ;
     private String password ;
-    private boolean accountNonExpired ;
-    private boolean accountNotLocked;
-    private boolean credentialsNonExpired ;
-    private boolean enable ;
+    private  boolean accountNonExpired;
+    private  boolean accountNonLocked;
+    private  boolean credentialsNonExpired;
+    private  boolean enabled;
 
     @ManyToMany
     private List<Authority> autorities;
