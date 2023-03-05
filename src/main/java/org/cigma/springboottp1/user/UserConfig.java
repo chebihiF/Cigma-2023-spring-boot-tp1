@@ -58,7 +58,7 @@ public class UserConfig {
             studentRoleAdmin.getUsers().add(admin);
             authorityRepository.save(studentRoleAdmin);
 
-            studentRoleUser.getUsers().add(admin);
+            studentRoleUser.getUsers().add(user);
             authorityRepository.save(studentRoleUser);
 
         };
