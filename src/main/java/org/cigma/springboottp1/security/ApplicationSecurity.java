@@ -24,8 +24,11 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/v1/**").permitAll()
+                .antMatchers("index.html").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/v1/**").hasAuthority("student:write")
+                .antMatchers("/api/v1/**").hasAnyRole("ADMIN","USER")
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -38,14 +41,14 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
         UserDetails admin = User.builder()
                 .username("admin")
                 .password(passwordEncoder.encode("admin"))
-                .roles("ADMIN")
+                .authorities("student:read","student:write","ROLE_ADMIN")
                 .build();
 
 
         UserDetails user = User.builder()
                 .username("user")
                 .password(passwordEncoder.encode("user"))
-                .roles("USER")
+                .authorities("student:read","ROLE_USER")
                 .build();
 
 
