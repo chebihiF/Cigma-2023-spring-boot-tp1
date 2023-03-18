@@ -1,6 +1,7 @@
 package org.cigma.springboottp1.security;
 
 import lombok.RequiredArgsConstructor;
+import org.cigma.springboottp1.jwt.JwtTokenVerifier;
 import org.cigma.springboottp1.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +34,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
+                .addFilterAfter(new JwtTokenVerifier(),JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("index.html","/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/v1/**").hasAuthority("student:write")
